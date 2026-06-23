@@ -1,0 +1,299 @@
+/* FONTES */
+.page-title,
+.section-title,
+.profile-subtitle,
+label {
+  font-family: 'Sansita Swashed', cursive;
+  font-weight: 700;
+}
+
+.hero-subtitle,
+span,
+input,
+button {
+  font-family: 'Lexend Zetta', sans-serif;
+}
+
+/* CONTAINER PRINCIPAL */
+.profile-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a4d3f 0%, #2d6b5a 100%);
+  color: white;
+}
+
+/* HERO IGUAL AO DO SOBRE */
+.hero-section {
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.1) 0%,
+    transparent 70%
+  );
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+.page-title {
+  font-size: 56px;
+  margin-bottom: 15px;
+  letter-spacing: 4px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  opacity: 0.9;
+  letter-spacing: 2px;
+}
+
+/* SECTION */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.profile-section {
+  padding: 60px 20px;
+}
+
+/* TÍTULO PADRÃO */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 42px;
+  margin: 0 0 15px 0;
+  letter-spacing: 3px;
+}
+
+.title-underline {
+  width: 80px;
+  height: 4px;
+  background: #ffd700;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* CARD */
+.profile-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 35px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.55);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65);
+}
+
+/* SUBTÍTULOS (Dados pessoais / Endereço) */
+.profile-subtitle {
+  font-size: 24px;
+  color: #ffd700;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.profile-subtitle + .row {
+  margin-top: 5px;
+}
+
+/* LAYOUT DOS CAMPOS */
+.row {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #ffd700;
+}
+
+/* TEXTO (SPAN) */
+span {
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: block;
+  word-wrap: break-word;
+}
+
+/* INPUT */
+input {
+  font-size: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus {
+  border-color: #ffd700;
+  outline: none;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* GRID PARA ENDEREÇO */
+.address-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr;
+  gap: 18px 24px;
+  margin-top: 10px;
+}
+
+.address-grid .row {
+  margin-bottom: 0;
+}
+
+/* Endereço: linha inteira */
+.endereco-row {
+  grid-column: 1 / -1;
+}
+
+/* Número e Complemento: mesma largura (uma coluna cada) */
+.numero-row {
+  grid-column: 1 / 2;
+}
+
+.complemento-row {
+  grid-column: 2 / 3;
+}
+
+/* Bairro: linha inteira */
+.bairro-row {
+  grid-column: 1 / -1;
+}
+
+/* BOTÕES */
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.edit-btn {
+  background: #ffd700;
+  color: #1a4d3f;
+}
+
+.save-btn {
+  background: #25d366;
+  color: white;
+}
+
+.cancel-btn {
+  background: #dc2743;
+  color: white;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .profile-card {
+    padding: 28px 24px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .page-title {
+    font-size: 42px;
+  }
+
+  .profile-subtitle {
+    font-size: 20px;
+  }
+
+  .address-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .endereco-row,
+  .numero-row,
+  .complemento-row,
+  .bairro-row {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .profile-card {
+    padding: 24px 18px;
+  }
+
+  label {
+    font-size: 16px;
+  }
+
+  span,
+  input {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,41 @@
+@if (isOpen) {
+    <div class="user-menu-overlay" (click)="onClose()">
+        
+        <div class="user-menu-sidebar" (click)="onSidebarClick($event)">
+            
+            <div class="menu-header">
+                <h2>Seu Perfil</h2>
+                <button class="close-btn" (click)="onClose()" aria-label="Fechar Menu">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="menu-body">
+                @if (estaLogado) {
+                    <button class="menu-item" (click)="navegar('/perfil')">
+                        <span>Meus Dados</span>
+                    </button>
+                    
+                    <button class="menu-item" (click)="navegar('/pedidos')">
+                        <span>Meus Pedidos</span>
+                    </button>
+                    
+                    <button class="menu-item" (click)="navegar('/admin/produtos')">
+                        <span>Gerenciar Produtos</span>
+                    </button>
+                    
+                    <button class="menu-item logout" (click)="onLogout()">
+                        <span>Sair / Logout</span>
+                    </button>
+                } @else {
+                    <button class="menu-item" (click)="navegar('/login')">
+                        <span>Login / Cadastre-se</span>
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+}

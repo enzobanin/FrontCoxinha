@@ -1,0 +1,90 @@
+<section class="produtos-admin">
+  <div class="produtos-admin-inner">
+      <div class="produtos-card">
+
+        <h1>Gerenciar Produtos</h1>
+
+        <form (ngSubmit)="onSubmit()" #formProd="ngForm" class="produto-form">
+          <label>
+            ID
+            <input type="number" [(ngModel)]="produto.id" name="id" required />
+          </label>
+
+          <label>
+            Nome
+            <input type="text" [(ngModel)]="produto.nome" name="nome" required />
+          </label>
+
+          <label>
+            URL da imagem
+            <input type="text" [(ngModel)]="produto.url" name="url" />
+          </label>
+
+          <label>
+            Descrição
+            <textarea [(ngModel)]="produto.descricao" name="descricao"></textarea>
+          </label>
+
+          <label>
+            Preço
+            <input
+              type="number"
+              step="0.01"
+              [(ngModel)]="produto.preco"
+              name="preco"
+              required
+            />
+          </label>
+
+          <label>
+            Categoria
+            <input type="text" [(ngModel)]="produto.categoria" name="categoria" />
+          </label>
+
+          <label class="disponivel">
+            <input
+              type="checkbox"
+              [(ngModel)]="produto.disponivel"
+              name="disponivel"
+            />
+            Disponível
+          </label>
+
+          <button type="submit">
+            Salvar
+          </button>
+        </form>
+
+        <div class="lista-produtos" *ngIf="produtos.length > 0">
+          <h2>Produtos cadastrados</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Categoria</th>
+                <th>Disp.</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of produtos">
+                <td>{{ p.id }}</td>
+                <td>{{ p.nome }}</td>
+                <td>{{ p.preco | currency:'BRL' }}</td>
+                <td>{{ p.categoria }}</td>
+                <td>{{ p.disponivel ? 'Sim' : 'Não' }}</td>
+                <td>
+                  <button type="button" (click)="editar(p)">Editar</button>
+                  <button type="button" (click)="excluir(p)">Excluir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+  </div>
+ 
+</section>

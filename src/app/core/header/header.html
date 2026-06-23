@@ -1,0 +1,44 @@
+<header class="header">
+  <a routerLink="/home" class="logo">Burgão</a>
+
+  <nav class="nav">
+    <a routerLink="/home" class="nav-link" routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/menu" class="nav-link" routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }">Menu</a>
+    <a routerLink="/sobre" class="nav-link" routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }">Sobre</a>
+  </nav>
+
+  <div class="header-icons">
+
+    <div class="user-profile-container">
+      <button class="icon-btn" aria-label="Perfil" (click)="toggleMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </button>
+
+      <app-user-menu
+        [isOpen]="isMenuAberto()"
+        [estaLogado]="estaLogado()"
+        (close)="isMenuAberto.set(false)"
+        (logoutAction)="handleLogout()">
+      </app-user-menu>
+    </div>
+
+    <button class="icon-btn cart-btn" aria-label="Carrinho" (click)="onCartClick()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2">
+        <path d="M9 2h6M6 6h12l1 12H5L6 6z"></path>
+      </svg>
+
+      @if (cartService.itemCount() > 0) {
+        <span class="cart-badge">{{ cartService.itemCount() }}</span>
+      }
+    </button>
+
+  </div>
+</header>

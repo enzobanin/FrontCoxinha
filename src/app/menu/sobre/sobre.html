@@ -1,0 +1,111 @@
+<div class="sobre-container">
+  <app-header (cartToggle)="toggleCart()"></app-header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="page-title">Sobre o Burgão</h1>
+      <p class="hero-subtitle">Onde cada hambúrguer conta uma história</p>
+    </div>
+  </section>
+
+  <section class="historia-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nossa História</h2>
+        <div class="title-underline"></div>
+      </div>
+      
+      <div class="historia-content">
+        <div class="historia-text">
+          <p>
+            O <strong>Burgão</strong> nasceu em 2018 do sonho de transformar o tradicional hambúrguer em uma 
+            experiência gastronômica única. Fundado por <strong>Jubileu</strong>, um apaixonado pela culinária desde 
+            criança, nosso restaurante começou como um pequeno food truck nas ruas de São Paulo.
+          </p>
+          <p>
+            Com receitas artesanais, ingredientes selecionados e muito amor pelo que fazemos, conquistamos 
+            rapidamente o coração dos paulistanos. Hoje, somos <strong>referência em hambúrgueres gourmet</strong>, mantendo 
+            a essência que nos trouxe até aqui: qualidade, sabor e atendimento excepcional.
+          </p>
+          <p>
+            Cada hambúrguer é preparado com carinho, usando carne 100% angus, pães artesanais assados 
+            diariamente e vegetais frescos de produtores locais. Nossa missão é simples: servir o melhor 
+            hambúrguer que você já experimentou.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="equipe-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nossa Equipe</h2>
+        <div class="title-underline"></div>
+      </div>
+
+      <div class="team-grid">
+        @for (member of teamMembers; track member.name) {
+          <div class="team-card">
+            <div class="team-image">
+              <img [src]="member.image" [alt]="member.name">
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">{{ member.name }}</h3>
+              <p class="team-role">{{ member.role }}</p>
+              <p class="team-description">{{ member.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="contato-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="title-underline"></div>
+      </div>
+
+      <div class="contato-grid">
+        <div class="contato-card">
+          <div class="contato-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Localização</h3>
+          <p>Rua dos Hambúrgueres, 1234</p>
+          <p>Vila Gourmet - São Paulo, SP</p>
+          <p>CEP: 01234-567</p>
+        </div>
+
+        <div class="contato-card">
+          <div class="contato-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>Horário</h3>
+          <p><strong>Segunda a Sexta:</strong> 11h - 23h</p>
+          <p><strong>Sábado e Domingo:</strong> 12h - 00h</p>
+          <p><strong>Feriados:</strong> 12h - 22h</p>
+        </div>
+
+        <div class="contato-card">
+          <div class="contato-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h3>Telefone</h3>
+          <p>(11) 98765-4321</p>
+          <p>contato@burgao.com.br</p>
+          <p>Delivery disponível!</p>
+        </div>
+      </div>
+
+      <div class="social-section">
+        <div class="social-links">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-cart [isOpen]="isCartOpen" (close)="closeCart()"></app-cart>
+</div>

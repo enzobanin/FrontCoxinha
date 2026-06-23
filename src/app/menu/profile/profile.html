@@ -1,0 +1,88 @@
+<div class="profile-container">
+  <app-header (cartToggle)="toggleCart()"></app-header>
+
+  <section class="profile-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Informações da Conta</h2>
+        <div class="title-underline"></div>
+      </div>
+
+      <div class="profile-card">
+
+        <!-- Dados pessoais -->
+        <h3 class="profile-subtitle">Dados pessoais</h3>
+
+        <div class="row">
+          <label>Nome</label>
+          <span *ngIf="!editMode">{{ user.nome }}</span>
+          <input *ngIf="editMode" type="text" [(ngModel)]="user.nome">
+        </div>
+
+        <div class="row">
+          <label>Email</label>
+          <span *ngIf="!editMode">{{ user.email }}</span>
+          <input *ngIf="editMode" type="email" [(ngModel)]="user.email">
+        </div>
+
+        <div class="row">
+          <label>Senha</label>
+          <span *ngIf="!editMode">********</span>
+          <input *ngIf="editMode" type="password" placeholder="Digite a nova senha" [(ngModel)]="user.senha">
+        </div>
+
+        <div class="row">
+          <label>Telefone</label>
+          <span *ngIf="!editMode">{{ user.telefone }}</span>
+          <input *ngIf="editMode" type="text" [(ngModel)]="user.telefone">
+        </div>
+
+        <div class="row">
+          <label>CPF</label>
+          <span *ngIf="!editMode">{{ user.cpf }}</span>
+          <input *ngIf="editMode" type="text" [(ngModel)]="user.cpf">
+        </div>
+
+        <!-- Endereço -->
+        <h3 class="profile-subtitle">Endereço</h3>
+
+        <div class="address-grid">
+          <!-- Linha 1: Endereço (full) -->
+          <div class="row endereco-row">
+            <label>Endereço</label>
+            <span *ngIf="!editMode">{{ user.endereco }}</span>
+            <input *ngIf="editMode" type="text" [(ngModel)]="user.endereco">
+          </div>
+
+          <!-- Linha 2: Número e Complemento (mesma largura) -->
+          <div class="row numero-row">
+            <label>Número</label>
+            <span *ngIf="!editMode">{{ user.numero }}</span>
+            <input *ngIf="editMode" type="text" [(ngModel)]="user.numero">
+          </div>
+
+          <div class="row complemento-row">
+            <label>Complemento</label>
+            <span *ngIf="!editMode">{{ user.complemento }}</span>
+            <input *ngIf="editMode" type="text" [(ngModel)]="user.complemento">
+          </div>
+
+          <!-- Linha 3: Bairro (full) -->
+          <div class="row bairro-row">
+            <label>Bairro</label>
+            <span *ngIf="!editMode">{{ user.bairro }}</span>
+            <input *ngIf="editMode" type="text" [(ngModel)]="user.bairro">
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button (click)="toggleEdit()" class="edit-btn" *ngIf="!editMode">Editar</button>
+          <button (click)="saveChanges()" class="save-btn" *ngIf="editMode">Salvar</button>
+          <button (click)="toggleEdit()" class="cancel-btn" *ngIf="editMode">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-cart [isOpen]="isCartOpen" (close)="closeCart()"></app-cart>
+</div>

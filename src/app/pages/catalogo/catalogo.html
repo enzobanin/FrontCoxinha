@@ -1,0 +1,8 @@
+<h1>Catálogo de Coxinhas</h1>
+
+<p>Quantidade: {{ coxinhas.length }}</p>
+
+<div *ngFor="let coxinha of coxinhas">
+  <h3>{{ coxinha.sabor }}</h3>
+  <p>Preço: R$ {{ coxinha.preco }}</p>
+</div>

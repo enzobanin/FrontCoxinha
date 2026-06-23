@@ -1,0 +1,63 @@
+h2{
+  font-family: 'Lexend Zetta';
+  font-size: 2.7rem;
+  font-weight: bold;
+  color: #ADBC9F; 
+  margin: 0;
+  position: absolute;
+  top: 33%; 
+  left: 21%; 
+  z-index: 2;
+}
+
+h1 {
+  font-family: 'Sansita Swashed';
+  font-size: 6.9rem;
+  font-weight: bold;
+  color: #FBFADA; 
+  margin: 0;
+  position: absolute;
+  top: 38%; 
+  left: 21%; 
+  z-index: 2;
+}
+
+p {
+  font-family: 'Lexend Zetta';
+  font-size: 1.5rem;
+  color: #ADBC9F; 
+  margin-top: 1rem;
+  position: absolute;
+  top: 51%;
+  left: 20%; 
+  z-index: 2;
+}
+
+.mini-icons {
+  display: flex;
+  gap: 60px;
+  margin-top: 29%;
+  margin-left: 17%;
+}
+
+.mini-icons img {
+  width: 90px;
+  height: 90px;
+}
+
+.principal {
+  max-width: 500px;
+  width: 100%;
+  object-fit: contain;
+  position: absolute;
+  right: 12%;
+  top: 22%; 
+  z-index: 1;
+}
+
+:host {
+  display: block;
+  height: 100vh;
+  overflow: hidden;
+}
+

@@ -1,0 +1,134 @@
+/*
+ * 1. Container Principal (Centraliza o Card)
+ * Adaptação do Overlay para ser o fundo da página de Auth
+ */
+.auth-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    padding: 20px;
+    background: linear-gradient(135deg, #1a4d3f 0%, #2d6b5a 100%); /* Mantém o seu gradiente de fundo */
+}
+
+/*
+ * 2. Card de Autenticação (A "Sidebar" adaptada)
+ */
+.auth-card {
+    background: white; /* Fundo branco ou claro para o card */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 450px; /* Largura máxima típica para formulários de autenticação */
+    color: #333; /* Cor padrão do texto interno */
+    animation: fadeIn 0.5s ease-out; /* Usa sua animação fadeIn */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3. Cabeçalho (Header) */
+.auth-header {
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.auth-header h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #1a4d3f; /* Cor do gradiente para destaque */
+    font-family: 'Sansita Swashed', cursive; /* Mantém sua fonte de destaque */
+    font-weight: 700;
+}
+
+/* 4. Grupos de Formulário e Inputs */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 14px;
+}
+
+.auth-card input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.auth-card input:focus {
+    border-color: #2d6b5a; /* Cor do gradiente no foco */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(45, 107, 90, 0.2);
+}
+
+/* 5. Botão Principal (Submit) */
+.auth-card button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #2d6b5a; /* Cor forte do gradiente */
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.auth-card button[type="submit"]:hover:not(:disabled) {
+    background: #1a4d3f; /* Cor mais escura no hover */
+}
+
+.auth-card button[type="submit"]:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* 6. Rodapé (Alternar Modo) */
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.auth-footer p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+.auth-footer .toggle-btn {
+    background: none;
+    border: none;
+    color: #2d6b5a; /* Cor de destaque para o link/botão de alternar */
+    cursor: pointer;
+    font-weight: 700;
+    margin-left: 5px;
+    transition: color 0.3s;
+}
+
+.auth-footer .toggle-btn:hover {
+    color: #1a4d3f;
+}

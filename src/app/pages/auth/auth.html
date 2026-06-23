@@ -1,0 +1,62 @@
+<div class="auth-container">
+    <div class="auth-card">
+
+        <div class="auth-header">
+            <h2>{{ isLoginMode ? 'Acessar Conta' : 'Criar Conta' }}</h2>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            
+            @if (!isLoginMode) {
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input id="name" formControlName="name" type="text" placeholder="Digite seu nome completo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input id="cpf" formControlName="cpf" type="text" placeholder="000.000.000-00">
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input id="telefone" formControlName="telefone" type="tel" placeholder="(99) 99999-9999">
+                </div>
+
+                <div class="form-group">
+                    <label for="dataNascimento">Data de Nascimento:</label>
+                    <input id="dataNascimento" formControlName="dataNascimento" type="date">
+                </div>
+            }
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email" formControlName="email" type="email" placeholder="Digite seu email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input id="password" formControlName="password" type="password" [placeholder]="isLoginMode ? 'Sua senha' : 'Mínimo de 6 dígitos'">
+            </div>
+
+            <button type="submit" [disabled]="form.invalid">
+                {{ isLoginMode ? 'Entrar na Conta' : 'Cadastrar Agora' }}
+            </button>
+            
+        </form>
+
+        <div class="auth-footer">
+            <p>
+                @if (isLoginMode) {
+                    Ainda não tem conta?
+                } @else {
+                    Já tem cadastro?
+                }
+                <button class="toggle-btn" (click)="toggleMode()">
+                    {{ isLoginMode ? 'Cadastre-se' : 'Fazer Login' }}
+                </button>
+            </p>
+        </div>
+
+    </div>
+</div>
