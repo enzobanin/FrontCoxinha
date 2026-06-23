@@ -17,6 +17,7 @@ export class Catalogo implements OnInit {
 
   coxinhas: any[] = [];
   valoresInseridos: { [key:number]: number } = {};
+  cliente:any;
 
   constructor(
   private coxinhaService: CoxinhaService,
@@ -26,6 +27,9 @@ export class Catalogo implements OnInit {
 
   ngOnInit(): void {
   this.carregarCoxinhas();
+  this.cliente = JSON.parse(
+  localStorage.getItem('cliente')!
+  );
   }
   comprar(coxinhaId:number){
 
@@ -61,5 +65,9 @@ export class Catalogo implements OnInit {
         console.log(err);
       }
     });
+  }
+  logout(){
+    localStorage.removeItem('cliente');
+    this.router.navigate(['/login']);
   }
 }

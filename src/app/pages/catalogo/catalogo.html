@@ -3,6 +3,13 @@
 <a routerLink="/movimentacoes">
   Ver Extrato de Movimentações
 </a>
+<h2>Bem-vindo, {{ cliente.nome }}</h2>
+
+<h3>Saldo: R$ {{ cliente.saldo }}</h3>
+
+<button (click)="logout()">
+    Logout
+  </button>
 
 <hr>
 
@@ -21,5 +28,6 @@
   <button (click)="comprar(coxinha.id)">
     Comprar
   </button>
+  
 
 </div>
