@@ -47,6 +47,7 @@ export class Catalogo implements OnInit {
       next:(res)=>{
         console.log(res);
         alert("Compra realizada com sucesso!");
+        window.location.reload();
       },
       error:(err)=>{
         console.log(err);
