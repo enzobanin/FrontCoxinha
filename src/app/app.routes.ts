@@ -19,7 +19,7 @@ export const routes: Routes = [
   {path: 'menu', component: Menu},
   {path: 'sobre', component: Sobre},
   {path: 'perfil', component: ProfileComponent},
-  { path: 'admin/produtos', component: ProdutosAdminPage },
+  {path: 'admin/produtos', component: ProdutosAdminPage },
 
 
 

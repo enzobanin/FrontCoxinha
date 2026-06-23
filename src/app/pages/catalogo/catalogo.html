@@ -1,8 +1,25 @@
 <h1>Catálogo de Coxinhas</h1>
 
-<p>Quantidade: {{ coxinhas.length }}</p>
+<a routerLink="/movimentacoes">
+  Ver Extrato de Movimentações
+</a>
 
-<div *ngFor="let coxinha of coxinhas">
-  <h3>{{ coxinha.sabor }}</h3>
+<hr>
+
+<div *ngFor="let coxinha of coxinhas" class="card">
+
+  <h2>{{ coxinha.sabor }}</h2>
+
   <p>Preço: R$ {{ coxinha.preco }}</p>
+
+  <input
+    type="number"
+    [(ngModel)]="valoresInseridos[coxinha.id]"
+    placeholder="Valor inserido"
+  >
+
+  <button (click)="comprar(coxinha.id)">
+    Comprar
+  </button>
+
 </div>
