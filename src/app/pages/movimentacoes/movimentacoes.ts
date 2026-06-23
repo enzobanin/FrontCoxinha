@@ -1,74 +1,100 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovimentacaoService } from '../../services/movimentacao.service';
-import { ChangeDetectorRef } from '@angular/core';
+import { CoxinhaService } from '../../services/coxinha.service';
+import { ClienteService } from '../../services/cliente.service';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-movimentacoes',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './movimentacoes.html',
   styleUrl: './movimentacoes.css'
 })
 export class Movimentacoes implements OnInit {
 
   movimentacoes:any[] = [];
+  coxinhas:any[] = [];
+  novoSaborSelecionado: { [key:number]: number } = {};
+  cliente:any;
 
   constructor(
     private movimentacaoService: MovimentacaoService,
+    private coxinhaService: CoxinhaService,
+    private clienteService: ClienteService,
     private cdr: ChangeDetectorRef
   ){}
-  
 
   ngOnInit(): void {
-    console.log("ENTREI NA TELA DE MOVIMENTACOES");
+    this.cliente = JSON.parse(localStorage.getItem('cliente')!);
     this.carregarMovimentacoes();
+    this.carregarCoxinhas();
+  }
+
+  carregarCoxinhas(){
+    this.coxinhaService.listarCoxinhas().subscribe({
+      next: (res:any) => {
+        this.coxinhas = res.object;
+        this.cdr.detectChanges();
+      }
+    });
   }
 
   carregarMovimentacoes(){
-  this.movimentacaoService
-    .listarMovimentacoes()
-    .subscribe({
-      next:(res:any)=>{
-
-        console.log("RES COMPLETA", res);
-        console.log("OBJECT", res.object);
-
-        this.movimentacoes = [...res.object];
-        this.cdr.detectChanges();
-
-        console.log("ARRAY COMPONENTE", this.movimentacoes);
-
-        setTimeout(() => {
-          console.log(
-            "TAMANHO APOS 1 SEGUNDO:",
-            this.movimentacoes.length
-          );
-        }, 1000);
-
-      },
-      error:(err)=>{
-        console.log(err);
-      }
-    });
-}
+    this.movimentacaoService
+      .listarPorCliente(this.cliente.id)
+      .subscribe({
+        next:(res:any)=>{
+          this.movimentacoes = [...res.object];
+          this.cdr.detectChanges();
+        },
+        error:(err)=>{
+          console.log(err);
+        }
+      });
+  }
 
   estornar(id:number){
-
     this.movimentacaoService
       .estornar(id)
       .subscribe({
         next:()=>{
           alert("Movimentação estornada");
           this.carregarMovimentacoes();
+          this.atualizarClienteLocal();
         },
         error:(err)=>{
           alert(err.error.message);
         }
       });
   }
-  teste(){
-  console.log(this.movimentacoes);
+
+  trocarSabor(movimentacaoId: number){
+    const novaCoxinhaId = this.novoSaborSelecionado[movimentacaoId];
+    if(!novaCoxinhaId){
+      alert("Selecione um sabor");
+      return;
+    }
+    this.movimentacaoService.trocarSabor(movimentacaoId, novaCoxinhaId).subscribe({
+      next: () => {
+        alert("Sabor trocado com sucesso!");
+        this.carregarMovimentacoes();
+        this.atualizarClienteLocal();
+      },
+      error: (err) => {
+        alert(err.error?.message || "Erro ao trocar sabor");
+      }
+    });
+  }
+
+  atualizarClienteLocal(){
+    const cliente = JSON.parse(localStorage.getItem('cliente')!);
+    this.clienteService.buscarPorId(cliente.id).subscribe({
+      next: (res) => {
+        localStorage.setItem('cliente', JSON.stringify(res.object));
+      }
+    });
   }
 }

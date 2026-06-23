@@ -21,11 +21,20 @@ export class MovimentacaoService {
   listarMovimentacoes(){
     return this.http.get(this.apiUrl);
   }
+  listarPorCliente(clienteId: number){
+    return this.http.get(`${this.apiUrl}/cliente/${clienteId}`);
+  }
 
   estornar(id:number){
     return this.http.post(
       `${this.apiUrl}/estornar`,
       { id }
+    );
+  }
+  trocarSabor(movimentacaoId: number, novaCoxinhaId: number){
+    return this.http.post(
+      `${this.apiUrl}/trocar-sabor`,
+      { movimentacaoId, novaCoxinhaId }
     );
   }
 }

@@ -15,10 +15,27 @@ export class ClienteService {
   fazerLogin(email:string, senha:string){
     return this.http.post<BasicResponseDTO<Cliente>>(
       `${this.apiUrl}/login`,
-      {
-        email,
-        senha
-      }
+      { email, senha }
+    );
+  }
+
+  cadastrar(nome: string, email: string, senha: string){
+    return this.http.post<BasicResponseDTO<Cliente>>(
+      `${this.apiUrl}`,
+      { nome, email, senha }
+    );
+  }
+
+  atualizarSaldo(id: number, saldo: number){
+    return this.http.put<BasicResponseDTO<boolean>>(
+      `${this.apiUrl}/saldo?id=${id}`,
+      { saldo }
+    );
+  }
+
+  buscarPorId(id: number){
+    return this.http.get<BasicResponseDTO<Cliente>>(
+      `${this.apiUrl}/${id}`
     );
   }
 }

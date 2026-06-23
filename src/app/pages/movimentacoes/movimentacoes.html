@@ -1,4 +1,5 @@
 <h1>Extrato de Glutonaria</h1>
+<h2>Cliente: {{ cliente.nome }}</h2>
 
 <a routerLink="/catalogo">
   Voltar ao Catálogo
@@ -6,23 +7,33 @@
 
 <hr>
 
+<p *ngIf="movimentacoes.length === 0" class="extrato-vazio">
+  Você ainda não fez nenhuma compra. Que tal experimentar uma coxinha? 
+</p>
+
 <div *ngFor="let mov of movimentacoes" class="card">
 
   <p><strong>ID:</strong> {{ mov.id }}</p>
-
+  <p><strong>Data:</strong> {{ mov.dataHora | date:'dd/MM/yyyy HH:mm' }}</p>
   <p><strong>Sabor:</strong> {{ mov.tipoSabor }}</p>
-
   <p><strong>Valor Pago:</strong> R$ {{ mov.valorPago }}</p>
-
   <p><strong>Troco:</strong> R$ {{ mov.troco }}</p>
-
   <p><strong>Status:</strong> {{ mov.status }}</p>
 
-  <button
-    *ngIf="mov.status === 'Pago'"
-    (click)="estornar(mov.id)"
-  >
-    Estornar
-  </button>
+  <div *ngIf="mov.status === 'Pago'">
+    <button (click)="estornar(mov.id)">
+      Estornar
+    </button>
+
+    <select [(ngModel)]="novoSaborSelecionado[mov.id]">
+      <option [value]="undefined" disabled selected>Trocar para...</option>
+      <option *ngFor="let cox of coxinhas" [value]="cox.id">
+        {{ cox.sabor }} - R$ {{ cox.preco }}
+      </option>
+    </select>
+    <button (click)="trocarSabor(mov.id)">
+      Trocar Sabor
+    </button>
+  </div>
 
 </div>

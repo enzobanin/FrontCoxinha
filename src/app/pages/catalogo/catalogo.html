@@ -11,13 +11,21 @@
 <button (click)="logout()">
     Logout
   </button>
+  <div class="credito">
+  <label>Inserir Crédito (R$):</label>
+  <input type="number" [(ngModel)]="valorCredito">
+  <button (click)="inserirCredito()">Inserir</button>
+  </div>
 
 <hr>
+
+  <div class="banner-promocao">
+    🎁 Insira R$ 20 ou mais e ganhe R$ 2 de desconto na sua coxinha!
+  </div>
 
 <div *ngFor="let coxinha of coxinhas" class="card">
 
   <h2>{{ coxinha.sabor }}</h2>
-
   <p>Preço: R$ {{ coxinha.preco }}</p>
 
   <input
@@ -26,10 +34,13 @@
     placeholder="Valor inserido"
   >
 
+  <p *ngIf="valoresInseridos[coxinha.id] >= 20" class="desconto-selo">
+    🏷️ Desconto de R$2 aplicado!
+  </p>
+
   <button (click)="comprar(coxinha.id)">
     Comprar
   </button>
-  
 
 </div>
 </div>

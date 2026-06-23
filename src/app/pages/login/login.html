@@ -1,15 +1,26 @@
-<h2>Login Cliente</h2>
+<h2>{{ isLoginMode ? 'Login Cliente' : 'Cadastro de Cliente' }}</h2>
+
+<div *ngIf="!isLoginMode">
+  <label>Nome:</label>
+  <input type="text" [(ngModel)]="nome" name="nome">
+</div>
 
 <div>
   <label>Email:</label>
-  <input type="email" [(ngModel)]="email">
+  <input type="email" [(ngModel)]="email" name="email">
 </div>
 
 <div>
   <label>Senha:</label>
-  <input type="password" [(ngModel)]="senha">
+  <input type="password" [(ngModel)]="senha" name="senha">
 </div>
 
-<button (click)="fazerLogin()">
-  Entrar
+<button (click)="onSubmit()">
+  {{ isLoginMode ? 'Entrar' : 'Cadastrar' }}
 </button>
+
+<p>
+  <a (click)="toggleMode()" style="cursor: pointer; text-decoration: underline;">
+    {{ isLoginMode ? 'Não tem conta? Cadastre-se' : 'Já tem conta? Faça login' }}
+  </a>
+</p>
