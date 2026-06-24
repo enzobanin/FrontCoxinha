@@ -1,7 +1,72 @@
+.container-mov{
+    max-width:1200px;
+    margin:auto;
+    padding:30px;
+}
+
+.topo-movimentacoes{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.btn-voltar{
+    background:#8b5a00;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.btn-voltar:hover{
+    background:#a86b00;
+}
+
 .card{
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    background:#f3e0b8;
+
+    border-left:8px solid #ff9800;
+
+    color:#4e2a13;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+
+.card button{
+    background:#ff9800;
+    color:white;
+
+    border:none;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    margin-top:10px;
+}
+
+.card select{
+    margin-top:10px;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    width:100%;
+}
+
+.extrato-vazio{
+    text-align:center;
+    font-size:1.2rem;
+    margin-top:50px;
 }

@@ -1,10 +1,16 @@
-<h1>Extrato de Glutonaria</h1>
-<h2>Cliente: {{ cliente.nome }}</h2>
+<div class="container-mov">
+<div class="topo-movimentacoes">
 
-<a routerLink="/catalogo">
-  Voltar ao Catálogo
-</a>
+  <h1>📋 Extrato de Glutonaria</h1>
 
+  <a
+    routerLink="/catalogo"
+    class="btn-voltar"
+  >
+    ← Voltar ao Catálogo
+  </a>
+
+</div>
 <hr>
 
 <p *ngIf="movimentacoes.length === 0" class="extrato-vazio">
@@ -18,7 +24,7 @@
   <p><strong>Sabor:</strong> {{ mov.tipoSabor }}</p>
   <p><strong>Valor Pago:</strong> R$ {{ mov.valorPago }}</p>
   <p><strong>Troco:</strong> R$ {{ mov.troco }}</p>
-  <p><strong>Status:</strong> {{ mov.status }}</p>
+  <p><strong>Status:</strong>{{ mov.status }}</p>
 
   <div *ngIf="mov.status === 'Pago'">
     <button (click)="estornar(mov.id)">
@@ -36,4 +42,5 @@
     </button>
   </div>
 
+</div>
 </div>

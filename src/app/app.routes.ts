@@ -13,13 +13,5 @@ export const routes: Routes = [
 
 
 
-  {
-    path: 'auth',
-    loadComponent: () => 
-        // 1. O caminho é './pages/auth/auth' (assumindo a estrutura da sua imagem)
-        // 2. A classe exportada DEVE ser referenciada como m.AuthComponent (Padrão Angular)
-        import('./pages/auth/auth').then(m => m.Auth) 
-  },
-
 
 ];
