@@ -33,6 +33,29 @@ export class Catalogo implements OnInit {
     this.carregarCoxinhas();
     this.cliente = JSON.parse(localStorage.getItem('cliente')!);
   }
+  getImagem(sabor:string):string{
+
+  switch(sabor){
+
+    case 'Carne':
+      return '/images/products/Coxinha-de-Carne-removebg-preview.png';
+
+    case 'Costela':
+      return '/images/products/Coxinha-costela--removebg-preview.png';
+
+    case 'Frango':
+      return '/images/products/coxinhaFrango-removebg-preview.png';
+
+    case 'FrangoCatupiry':
+      return '/images/products/coxinha.png';
+
+    case 'Queijo':
+      return '/images/products/coxinha-de-queijo-300x237-removebg-preview.png';
+
+    default:
+      return '/images/products/coxinha.png';
+  }
+}
 
   atualizarClienteLocal(){
     this.clienteService.buscarPorId(this.cliente.id).subscribe({

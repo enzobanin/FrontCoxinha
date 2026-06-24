@@ -1,10 +1,18 @@
 .footer-container{
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    background:#5b3a0d;
+    color:white;
+    margin-top:60px;
+    padding:20px;
+    text-align:center;
+}
 
-    border-top: 1px solid #ccc;
+.footer-content{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-    color: #666;
-    font-size: 14px;
+.copyright{
+    margin-top:10px;
+    font-size:14px;
 }

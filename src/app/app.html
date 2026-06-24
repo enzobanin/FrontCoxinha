@@ -1,4 +1,7 @@
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+
+<app-footer
+  *ngIf="router.url !== '/login'"
+></app-footer>
 <!-- posicionamento absoluto/fixo -->
  

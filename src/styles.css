@@ -57,3 +57,14 @@
   margin: 0;
   text-transform: capitalize;
 }
+html,
+body{
+    margin:0;
+    padding:0;
+
+    min-height:100vh;
+
+    background:#4a2c08;
+
+    font-family: Arial, Helvetica, sans-serif;
+}

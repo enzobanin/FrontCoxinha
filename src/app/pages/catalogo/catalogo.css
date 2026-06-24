@@ -1,24 +1,229 @@
 .container{
-    max-width: 1000px;
-    margin: auto;
+    width:100%;
+    min-height:100vh;
+}
+
+.topbar{
+    background:#4b2500;
+    color:white;
+
+    padding:25px 40px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+}
+
+.logo-area{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.usuario{
+    position:absolute;
+
+    right:40px;
+
+    text-align:right;
+
+    font-size:1.1rem;
+}
+
+.logo-icon{
+    font-size:3rem;
+}
+
+.logo-area p{
+    margin-top:8px;
+    opacity:.8;
+}
+.acoes-topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    padding:20px 40px;
+}
+
+.credito{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.credito input{
+    width:150px;
+    padding:10px;
+
+    border:none;
+    border-radius:8px;
+}
+
+.botao-padrao{
+    background:#e28b00;
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:12px 24px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.btn-extrato{
+    background:#8b5a00;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+}
+
+.promocao{
+    width:90%;
+
+    margin:20px auto;
+
+    background:#fff3cd;
+
+    color:#856404;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    font-weight:bold;
+}
+
+.catalogo-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+
+    max-width:1000px;
+
+    margin:40px auto;
 }
 
 .card{
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    width:260px;
+
+    background:#fffaf3;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:0 6px 16px rgba(0,0,0,.25);
+
+    transition:.2s;
 }
 
-input{
-    width: 100%;
-    padding: 8px;
-    margin-top: 10px;
+.card:hover{
+    transform:translateY(-5px);
 }
 
-button{
-    margin-top: 10px;
-    padding: 8px 15px;
-    cursor: pointer;
+.imagem-coxinha{
+    width:200px;
+    height:180px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:auto;
+}
+
+.card h2{
+    color:#4e2a13;
+
+    margin-top:10px;
+}
+
+.preco{
+    color:#ff9800;
+
+    font-size:1.4rem;
+
+    font-weight:bold;
+}
+
+.card input{
+    width:100%;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    box-sizing:border-box;
+
+    margin-top:10px;
+}
+
+.card button{
+    width:100%;
+
+    margin-top:10px;
+
+    background:#ff9800;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+@media (max-width: 768px){
+
+    .topbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .usuario{
+        position:static;
+        text-align:center;
+    }
+
+    .acoes-topo{
+        flex-direction:column;
+    }
+
+    .credito{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .credito input{
+        width:100%;
+    }
 }

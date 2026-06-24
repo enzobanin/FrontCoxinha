@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from "@angular/router";
+import { Router, RouterOutlet } from "@angular/router";
 import { Footer } from "./core/footer/footer"; 
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Footer],
+  imports: [RouterOutlet, Footer, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  title = 'burgao';
+  constructor(public router: Router){}
 }

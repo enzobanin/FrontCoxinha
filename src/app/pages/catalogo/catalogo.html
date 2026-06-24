@@ -1,32 +1,79 @@
-<h1>Catálogo de Coxinhas</h1>
+
 <div class="container">
+<div class="topbar">
 
-<a routerLink="/movimentacoes">
-  Ver Extrato de Movimentações
-</a>
-<h2>Bem-vindo, {{ cliente.nome }}</h2>
+  <div class="logo-area">
 
-<h3>Saldo: R$ {{ cliente.saldo }}</h3>
+  <span class="logo-icon">🥟</span>
 
-<button (click)="logout()">
+  <div class>
+    <h1>Banca de Coxinhas</h1>
+    <p>As melhores da região</p>
+  </div>
+
+</div>
+
+  <div class="usuario">
+    <span>Bem vindo, {{ cliente.nome }}</span>
+    <br><span>Saldo Total: R$ {{ cliente.saldo }}</span>
+  </div>
+
+</div>
+
+<!-- <button (click)="logout()">
     Logout
   </button>
   <div class="credito">
   <label>Inserir Crédito (R$):</label>
   <input type="number" [(ngModel)]="valorCredito">
   <button (click)="inserirCredito()">Inserir</button>
+  </div> -->
+ <div class="acoes-topo">
+
+  <a
+  routerLink="/movimentacoes"
+  class="btn-extrato"
+>
+  📋 Ver Extrato de Movimentações
+</a>
+
+  <div class="credito">
+
+    <input
+      type="number"
+      [(ngModel)]="valorCredito"
+      placeholder="Inserir crédito"
+    >
+
+    <button class="botao-padrao" (click)="inserirCredito()">
+  Adicionar Saldo
+</button>
+
+<button class="botao-padrao" (click)="logout()">
+Logout
+</button>
   </div>
+
+
+</div> 
 
 <hr>
 
-  <div class="banner-promocao">
-    🎁 Insira R$ 20 ou mais e ganhe R$ 2 de desconto na sua coxinha!
-  </div>
+<div class="promocao">
+  🎁 Insira R$ 20 ou mais e ganhe R$ 2 de desconto na sua coxinha!
+</div>
 
+<div class="catalogo-container">
 <div *ngFor="let coxinha of coxinhas" class="card">
-
+  <img
+    [src]="getImagem(coxinha.sabor)"
+    [alt]="coxinha.sabor"
+    class="imagem-coxinha"
+  >
   <h2>{{ coxinha.sabor }}</h2>
-  <p>Preço: R$ {{ coxinha.preco }}</p>
+  <p class="preco">
+    R$ {{ coxinha.preco }}
+  </p>
 
   <input
     type="number"
@@ -41,6 +88,6 @@
   <button (click)="comprar(coxinha.id)">
     Comprar
   </button>
-
+</div>
 </div>
 </div>

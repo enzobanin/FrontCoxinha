@@ -1,26 +1,57 @@
-<h2>{{ isLoginMode ? 'Login Cliente' : 'Cadastro de Cliente' }}</h2>
+<div class="login-page">
 
-<div *ngIf="!isLoginMode">
-  <label>Nome:</label>
-  <input type="text" [(ngModel)]="nome" name="nome">
+  <div class="login-card">
+
+    <div class="logo">
+      🥟
+      <h1>Banca de Coxinhas</h1>
+      <p>As melhores da região</p>
+    </div>
+
+    <h2>
+      {{ isLoginMode ? 'Login Cliente' : 'Cadastro de Cliente' }}
+    </h2>
+
+    <div *ngIf="!isLoginMode">
+      <label>Nome</label>
+      <input
+        type="text"
+        [(ngModel)]="nome"
+        name="nome"
+      >
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+      >
+    </div>
+
+    <div>
+      <label>Senha</label>
+      <input
+        type="password"
+        [(ngModel)]="senha"
+        name="senha"
+      >
+    </div>
+
+    <button (click)="onSubmit()">
+      {{ isLoginMode ? 'Entrar' : 'Cadastrar' }}
+    </button>
+
+    <p class="alternar">
+      <a (click)="toggleMode()">
+        {{ isLoginMode
+          ? 'Não tem conta? Cadastre-se'
+          : 'Já tem conta? Faça login'
+        }}
+      </a>
+    </p>
+
+  </div>
+
 </div>
-
-<div>
-  <label>Email:</label>
-  <input type="email" [(ngModel)]="email" name="email">
-</div>
-
-<div>
-  <label>Senha:</label>
-  <input type="password" [(ngModel)]="senha" name="senha">
-</div>
-
-<button (click)="onSubmit()">
-  {{ isLoginMode ? 'Entrar' : 'Cadastrar' }}
-</button>
-
-<p>
-  <a (click)="toggleMode()" style="cursor: pointer; text-decoration: underline;">
-    {{ isLoginMode ? 'Não tem conta? Cadastre-se' : 'Já tem conta? Faça login' }}
-  </a>
-</p>
