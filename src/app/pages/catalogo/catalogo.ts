@@ -60,8 +60,10 @@ export class Catalogo implements OnInit {
   atualizarClienteLocal(){
     this.clienteService.buscarPorId(this.cliente.id).subscribe({
       next: (res) => {
+        console.log("CLIENTE ATUALIZADO", res.object);
         this.cliente = res.object;
         localStorage.setItem('cliente', JSON.stringify(this.cliente));
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.log(err);
