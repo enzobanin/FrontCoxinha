@@ -8,7 +8,7 @@ import { Cliente } from '../models/cliente';
 })
 export class ClienteService {
 
-  private apiUrl = 'http://localhost:3090/api/login/cliente';
+  private apiUrl = 'https://bancacoxinha-api.onrender.com/api/login/cliente';
 
   constructor(private http: HttpClient) {}
 

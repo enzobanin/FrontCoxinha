@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MovimentacaoService {
 
-  private apiUrl = 'http://localhost:3090/api/movimentacoes';
+  private apiUrl = 'https://bancacoxinha-api.onrender.com/api/movimentacoes';
 
   constructor(private http: HttpClient) {}
 

@@ -8,7 +8,7 @@ import { Coxinha } from '../models/coxinha';
 })
 export class CoxinhaService {
 
-  private apiUrl = 'http://localhost:3090/api/catalogo/coxinha';
+  private apiUrl = 'https://bancacoxinha-api.onrender.com/api/catalogo/coxinha';
 
   constructor(private http: HttpClient) {}
 
